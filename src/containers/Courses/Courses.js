@@ -23,18 +23,13 @@ class Courses extends Component {
           {this.state.courses.map((course) => {
             return (
               <NavLink
-                to={
-                  this.props.match.url +
-                  "/course/" +
-                  course.id +
-                  "?title=" +
-                  course.title
-                }
+                to={{
+                  pathname: this.props.match.url + "/course/" + course.id,
+                  search: "?title=" + course.title,
+                }}
                 key={course.id}
               >
-                <article className="Course" key={course.id}>
-                  {course.title}
-                </article>
+                <article className="Course">{course.title}</article>
               </NavLink>
             );
           })}
