@@ -33,6 +33,7 @@ const Blog = (props) => {
           <Route path="/users" component={Users} />
           <Route path="/courses" component={Courses} />
           <Route component={Nomatch} />
+          <Redirect from="/all-courses" to="/courses" />
         </Switch>
       </Suspense>
     </Fragment>
