@@ -23,7 +23,13 @@ class Courses extends Component {
           {this.state.courses.map((course) => {
             return (
               <NavLink
-                to={this.props.match.url + "/course/" + course.id}
+                to={
+                  this.props.match.url +
+                  "/course/" +
+                  course.id +
+                  "/" +
+                  course.title
+                }
                 key={course.id}
               >
                 <article className="Course" key={course.id}>
@@ -35,7 +41,7 @@ class Courses extends Component {
         </section>
         <section>
           <Route
-            path={this.props.match.url + "/course/:id"}
+            path={this.props.match.url + "/course/:id/:title"}
             exact
             component={Course}
           />
