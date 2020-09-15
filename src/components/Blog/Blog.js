@@ -29,7 +29,7 @@ const Blog = (props) => {
       </header>
       <Suspense fallback={<div>Loading...</div>}>
         <Route path="/users" exact component={Users} />
-        <Route path="/courses" exact component={Courses} />
+        <Route path="/courses" component={Courses} />
       </Suspense>
     </Fragment>
   );

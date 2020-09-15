@@ -1,6 +1,10 @@
-import React, { Component } from "react";
+import React, { Component, lazy } from "react";
+
+import { NavLink, Route } from "react-router-dom";
 
 import "./Courses.css";
+
+const Course = lazy(() => import("../../components/Course/Course"));
 
 class Courses extends Component {
   state = {
@@ -18,11 +22,20 @@ class Courses extends Component {
         <section className="Courses">
           {this.state.courses.map((course) => {
             return (
-              <article className="Course" key={course.id}>
-                {course.title}
-              </article>
+              <NavLink to={this.props.match.url + "/course"}>
+                <article className="Course" key={course.id}>
+                  {course.title}
+                </article>
+              </NavLink>
             );
           })}
+        </section>
+        <section>
+          <Route
+            path={this.props.match.url + "/course"}
+            exact
+            component={Course}
+          />
         </section>
       </div>
     );
