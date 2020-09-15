@@ -1,0 +1,10 @@
+.Links a {
+  font-size: 20px;
+  margin: 20px;
+  text-decoration: none;
+  color: bisque;
+}
+
+.Links a:hover {
+  color: bisque;
+}

@@ -1,8 +1,7 @@
-import React, { Component, Suspense, lazy } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import React, { Component } from "react";
+import { BrowserRouter as Router } from "react-router-dom";
 
-const Users = lazy(() => import("./containers/Users/Users"));
-const Courses = lazy(() => import("./containers/Courses/Courses"));
+import Blog from "./components/Blog/Blog";
 
 class App extends Component {
   render() {
@@ -39,10 +38,7 @@ class App extends Component {
             </li>
           </ol>
           <hr />
-          <Suspense fallback={<div>Loading...</div>}>
-            <Route path="/users" exact component={Users} />
-            <Route path="/courses" exact component={Courses} />
-          </Suspense>
+          <Blog />
         </div>
       </Router>
     );
