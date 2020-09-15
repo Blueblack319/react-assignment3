@@ -1,11 +1,17 @@
 import React, { Component } from "react";
 
+import queryString from "query-string";
+
 class Course extends Component {
   render() {
-    console.log(this.props);
+    const parsed = queryString.parse(this.props.location.search);
+    console.log(this.props.location.search);
+    console.log(parsed.title);
+    const title = parsed.title;
+
     return (
       <div>
-        <h1>{this.props.match.params.title}</h1>
+        <h1>{title}</h1>
         <p>You selected the Course with ID: {this.props.match.params.id}</p>
       </div>
     );
