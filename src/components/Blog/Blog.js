@@ -1,5 +1,6 @@
 import React, { Fragment, lazy, Suspense } from "react";
-import { NavLink, Route } from "react-router-dom";
+import { NavLink, Redirect, Route, Switch } from "react-router-dom";
+import Nomatch from "../Nomatch/Nomatch";
 
 import classes from "./Blog.module.css";
 
@@ -28,8 +29,11 @@ const Blog = (props) => {
         </nav>
       </header>
       <Suspense fallback={<div>Loading...</div>}>
-        <Route path="/users" exact component={Users} />
-        <Route path="/courses" component={Courses} />
+        <Switch>
+          <Route path="/users" component={Users} />
+          <Route path="/courses" component={Courses} />
+          <Route component={Nomatch} />
+        </Switch>
       </Suspense>
     </Fragment>
   );
